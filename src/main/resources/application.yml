@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/FREEPDB1   # <-- PDB correcta
+    username: GYM
+    password: GYM
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: none          # usamos tus scripts SQL, no que Hibernate cree nada
+    properties:
+      hibernate.dialect: org.hibernate.dialect.OracleDialect
+    show-sql: true
+
+server:
+  port: 8080

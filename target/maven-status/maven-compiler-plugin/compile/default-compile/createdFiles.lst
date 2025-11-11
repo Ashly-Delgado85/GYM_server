@@ -1,0 +1,14 @@
+cr\una\gymserver\model\Reservation.class
+cr\una\gymserver\repository\GymClassRepo.class
+cr\una\gymserver\controller\ReservationController.class
+cr\una\gymserver\model\Member.class
+cr\una\gymserver\service\GymClassService.class
+cr\una\gymserver\repository\ReservationRepo.class
+cr\una\gymserver\model\ServicePlan.class
+cr\una\gymserver\service\ReservationService.class
+cr\una\gymserver\model\GymClass.class
+cr\una\gymserver\model\Trainer.class
+cr\una\gymserver\GymServerApplication.class
+cr\una\gymserver\controller\GymClassController.class
+cr\una\gymserver\repository\MemberRepo.class
+cr\una\gymserver\socket\SocketServer.class

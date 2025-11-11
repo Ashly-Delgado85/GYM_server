@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Información general -->
+  <groupId>cr.una</groupId>
+  <artifactId>gym-server</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>gym-server</name>
+  <packaging>jar</packaging> <!-- 🔒 Fuerza a que sea un proyecto ejecutable, no padre -->
+
+  <description>Servidor Spring Boot para gestión de gimnasio (proyecto independiente)</description>
+  <url>http://localhost:8080</url>
+
+  <properties>
+    <java.version>21</java.version>
+    <spring.boot.version>3.3.3</spring.boot.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- Web / REST -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- JPA (opcional si usas repositorios JPA) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!-- JDBC para uso con JdbcTemplate -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
+    <!-- Validaciones Jakarta -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+    <!-- Driver Oracle -->
+    <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc11</artifactId>
+      <version>23.4.0.24.05</version>
+    </dependency>
+
+    <!-- JAXB (para exportar/importar XML) -->
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+      <version>4.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+      <version>4.0.5</version>
+    </dependency>
+
+    <!-- Lombok (opcional) -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Tests -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>gym-server</finalName> <!-- 🔒 Evita conflictos con otros artefactos -->
+    <plugins>
+      <!-- Spring Boot -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+        <configuration>
+          <mainClass>cr.una.gym.GymServerApplication</mainClass>
+        </configuration>
+      </plugin>
+
+      <!-- Compilador -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>21</release>
+          <parameters>true</parameters>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- ❌ Bloquea la creación de módulos dentro -->
+  <modules>
+    <!-- No se permite ningún módulo hijo en este proyecto -->
+  </modules>
+</project>
